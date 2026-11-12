@@ -1,0 +1,48 @@
+{
+  "name": "ForgeAgent Course Scenes",
+  "scenes": [
+    {
+      "name": "Talking Head + Screen",
+      "sources": [
+        {
+          "name": "Camera",
+          "type": "dshow_input",
+          "settings": {
+            "video_device_id": "your-camera"
+          },
+          "filters": [
+            {
+              "name": "Background Removal",
+              "type": "background_removal",
+              "settings": {
+                "model": "rvm_mobilenetv3_fp32",
+                "threshold": 0.55
+              }
+            }
+          ]
+        },
+        {
+          "name": "IntelliJ / Code Window",
+          "type": "window_capture",
+          "settings": {
+            "window": "IntelliJ IDEA"
+          }
+        },
+        {
+          "name": "Terminal",
+          "type": "window_capture"
+        }
+      ]
+    },
+    {
+      "name": "Full Screen Code",
+      "sources": [
+        {
+          "name": "IntelliJ Full",
+          "type": "window_capture"
+        }
+      ]
+    }
+  ],
+  "notes": "Import this collection in OBS: Scene Collection → Import. Then assign your real camera and windows. Add the Background Removal filter if the plugin is installed."
+}
